@@ -56,6 +56,7 @@ SequelizeResult.init({
 }, {
   sequelize: db,
   modelName: 'Resultado',
+  tableName: 'Resultado', 
   timestamps: false,
 });
 

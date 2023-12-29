@@ -1,4 +1,5 @@
 import * as express from 'express';
+import router from './routes';
 
 class App {
   public app: express.Express;
@@ -8,6 +9,8 @@ class App {
 
     this.config();
 
+    this.routes();
+
     this.app.get('/teste', (req, res) => res.json({ ok: 'tudo certo' }));
   }
 
@@ -15,13 +18,16 @@ class App {
     this.app.use(express.json());
   }
 
-  
+  private routes(): void {
+    this.app.use(router);
+  }
 
   public start(PORT: string | number): void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
   }
 }
 
-export { App };
+export default App
+
 
 
