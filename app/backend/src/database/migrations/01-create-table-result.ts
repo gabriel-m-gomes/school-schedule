@@ -28,10 +28,12 @@ export default {
       criadoEm: {
         type: DataTypes.DATE,
         allowNull: false,
+        defaultValue: DataTypes.NOW, 
       },
       atualizadoEm: {
         type: DataTypes.DATE,
         allowNull: false,
+        defaultValue: DataTypes.NOW, 
       },
     });
   },

@@ -8,7 +8,13 @@ class ResultModel implements IResultModel {
     async getResults(): Promise<IResult[]> {
         const resultsDB = await this.model.findAll();
         return resultsDB;
-    }
-}
+    };
+
+    async createNote(note: IResult): Promise<IResult> {
+        const { bimestre, disciplina, nota } = note;
+        const newNote = await this.model.create({ bimestre, disciplina, nota});
+        return newNote.dataValues;
+    };
+};
 
 export default ResultModel;

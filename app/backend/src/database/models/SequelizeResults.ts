@@ -19,9 +19,9 @@ class SequelizeResult extends Model<InferAttributes<SequelizeResult>,
 
   declare nota: number;
 
-  declare criadoEm: Date;
+  declare criadoEm: CreationOptional<Date>;
 
-  declare atualizadoEm: Date;
+  declare atualizadoEm: CreationOptional<Date>;
 }
 
 SequelizeResult.init({
@@ -32,31 +32,31 @@ SequelizeResult.init({
     autoIncrement: true,
   },
   bimestre: {
-    type: DataTypes.STRING(30),
-    allowNull: false,
-  }, 
-  disciplina: {
-    type: DataTypes.STRING(30),
-    allowNull: false,
-  },
+      type: DataTypes.ENUM(...Object.values(Bimestre)),
+      allowNull: false,
+    },
+    disciplina: {
+      type: DataTypes.ENUM(...Object.values(Disciplina)),
+      allowNull: false,
+    },
   nota: {
     type: DataTypes.FLOAT, 
     allowNull: false
   },
-  criadoEm: {
+   criadoEm: {
     type: DataTypes.DATE,
     allowNull: false,
-    defaultValue: DataTypes.NOW 
+    defaultValue: DataTypes.NOW, 
   },
   atualizadoEm: {
     type: DataTypes.DATE,
     allowNull: false,
-    defaultValue: DataTypes.NOW
+    defaultValue: DataTypes.NOW, 
   }
 }, {
   sequelize: db,
   modelName: 'Resultado',
-  tableName: 'Resultado', 
+  tableName: 'Resultado',
   timestamps: false,
 });
 

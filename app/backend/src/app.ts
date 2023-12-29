@@ -10,11 +10,13 @@ class App {
     this.config();
 
     this.routes();
-
-    this.app.get('/teste', (req, res) => res.json({ ok: 'tudo certo' }));
+    
+    this.app.get('/', (req, res) => res.json({ ok: true }));
   }
 
   private config():void {
+    
+
     this.app.use(express.json());
   }
 
@@ -28,6 +30,5 @@ class App {
 }
 
 export default App
-
 
 
