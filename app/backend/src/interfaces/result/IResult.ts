@@ -13,7 +13,7 @@ export enum Disciplina {
 }
 
 export interface IResult {
-  id: string;
+  id: number;
   bimestre: Bimestre;
   disciplina: Disciplina;
   nota: number;
