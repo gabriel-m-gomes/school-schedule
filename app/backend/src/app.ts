@@ -11,7 +11,7 @@ class App {
 
     this.routes();
     
-    this.app.get('/', (req, res) => res.json({ ok: true }));
+    this.app.get('/ping', (req, res) => res.json({ message: 'pong' }));
   }
 
   private config():void {

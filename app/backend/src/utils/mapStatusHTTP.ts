@@ -8,6 +8,9 @@ export default function mapStatusHTTP(status: string): number {
 
         case 'NOT_FOUND':
             return 404
+
+        case 'EXCLUDE':
+            return 204
         default:
             return 500
     }
