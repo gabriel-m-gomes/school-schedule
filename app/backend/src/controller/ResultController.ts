@@ -1,14 +1,16 @@
 import { Request, Response } from "express";
 import ResultService from "../service/ResultService";
 import mapStatusHTTP from "../utils/mapStatusHTTP";
-import filterBimestre from "../utils/filterBimestre";
+import BimestreFilter from "../utils/filterBimestre";
 
 class ResultController {
   private service = new ResultService();
+  private bimestreFilter = new BimestreFilter();
+
 
   async getAllResults(_req: Request, res: Response) {
     const { status, data } = await this.service.getAllResults();
-    const dataFilter = filterBimestre(data)
+    const dataFilter = this.bimestreFilter.filterBimestre(data)
     return res.status(mapStatusHTTP(status)).json(dataFilter);
   };
 

@@ -1,11 +1,29 @@
-import { IResult } from "../interfaces/result/IResult";
+import { IFilterResult } from "../interfaces/result/IResult";
 
-export default function filterBimestre(data: any, bimestreNames: string[] = ['PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO']): any {
-  const filteredData: any = {};
+class BimestreFilter {
+  private formatDate(isoDate: string): string {
+    const date = new Date(isoDate);
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  }
 
-  bimestreNames.forEach((bimestre: string) => {
-    filteredData[bimestre.toLowerCase()] = data.filter((item: IResult) => item.bimestre === bimestre);
-  });
+  filterBimestre(data: any, bimestreNames: string[] = ['PRIMEIRO', 'SEGUNDO', 'TERCEIRO', 'QUARTO']): any {
+    const filteredData: any = {};
 
-  return filteredData;
+    bimestreNames.forEach((bimestre: string) => {
+      filteredData[bimestre.toLowerCase()] = data
+        .filter((item: IFilterResult) => item.bimestre === bimestre)
+        .map((item: IFilterResult) => ({
+          id: item.id,
+          bimestre: item.bimestre,
+          disciplina: item.disciplina,
+          nota: item.nota,
+          criadoEm: this.formatDate(item.criadoEm),
+          atualizadoEm: this.formatDate(item.atualizadoEm),
+        }));
+    });
+
+    return filteredData;
+  }
 }
+
+export default BimestreFilter;

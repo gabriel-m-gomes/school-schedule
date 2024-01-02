@@ -20,3 +20,12 @@ export interface IResult {
   criadoEm: Date;
   atualizadoEm: Date;
 }
+
+export interface IFilterResult {
+  id: number;
+  bimestre: Bimestre;
+  disciplina: Disciplina;
+  nota: number;
+  criadoEm: string;
+  atualizadoEm: string;
+}
