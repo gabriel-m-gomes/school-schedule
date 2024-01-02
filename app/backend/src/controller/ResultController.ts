@@ -1,13 +1,15 @@
 import { Request, Response } from "express";
 import ResultService from "../service/ResultService";
 import mapStatusHTTP from "../utils/mapStatusHTTP";
+import filterBimestre from "../utils/filterBimestre";
 
 class ResultController {
   private service = new ResultService();
 
   async getAllResults(_req: Request, res: Response) {
     const { status, data } = await this.service.getAllResults();
-    return res.status(mapStatusHTTP(status)).json(data);
+    const dataFilter = filterBimestre(data)
+    return res.status(mapStatusHTTP(status)).json(dataFilter);
   };
 
   async createNoteController(req: Request, res: Response) {
