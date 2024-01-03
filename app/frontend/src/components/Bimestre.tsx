@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import getResults from '../services/request';
+import { IResult } from '../interfaces/result/IResult';
 
 const Bimestre = () => {
-  const [dados, setDados] = useState([]);
+  const [dados, setDados] = useState<IResult>({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await getResults(); 
         setDados(response);
-        console.log(response)
-
       } catch (error) {
         console.error('Erro ao buscar dados da API:', error);
       }
@@ -20,23 +19,21 @@ const Bimestre = () => {
   }, []); 
 
   return (
-  <div>
-    {dados ? (
-      <div>
-        {dados.map((dado: any, index: number) => (
-          <div key={index}>
-            <h1>{dado.bimestre}</h1>
-            <p>{dado.disciplina}</p>
-            <p>{dado.nota}</p>
+    <div>
+      <h1>Bimestre 1</h1>
+      {dados && dados.primeiro ? (
+        dados.primeiro.map((item) => (
+          <div key={item.id}>
+            <p>{item.disciplina}</p>
+            <p>{item.criadoEm}</p>
+            <p>{item.nota}</p>
           </div>
-        ))}
-      </div>
-    ) : (
-      <p>Carregando...</p>
-    )}
-  </div>
-);
-
+        ))
+      ) : (
+        <p>Carregando...</p>
+      )}
+    </div>
+  );
 };
 
 export default Bimestre;
