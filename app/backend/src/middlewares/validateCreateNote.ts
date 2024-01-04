@@ -15,12 +15,13 @@ class ValidateCreateNote {
       return res.status(400).json({ message: 'Já existe uma nota registrada para esse bimestre e disciplina' });
     }
 
-    if (nota < 0 || nota > 10) return res.status(400).json({ message: 'Nota inválida' });
+    if (nota < 0 || nota > 10 || nota === null) return res.status(400).json({ message: 'Nota inválida' });
     
 
     next();
   }
 }
+
 
 
 export default ValidateCreateNote;
