@@ -7,9 +7,8 @@ import getNotaStyle from "../utils/getNotaStyle";
 const RenderBim = (bimestreData: any) => {
 
   async function deleteNote(event: React.MouseEvent<HTMLButtonElement>) {
-    const dbData = await excludeNote(Number(event.currentTarget.id))
+    await excludeNote(Number(event.currentTarget.id))
     bimestreData.updateData()
-    console.log(dbData)
   }
 
   return bimestreData.dados ? (

@@ -24,8 +24,7 @@ const Buttons = (prop: IButton) => {
       nota: Number(input),
     };
 
-    const dbData = await createNote(nota);
-    console.log(dbData);
+    await createNote(nota);
     prop.updateData()
     setSelectedDiscipline(''); 
     setInputValue('');
