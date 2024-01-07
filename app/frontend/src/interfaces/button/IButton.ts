@@ -1,4 +1,5 @@
 export interface IButton {
   bimestreProp: string;
-  bool: boolean;
+  bool: any;
+  updateData(): any
 }
