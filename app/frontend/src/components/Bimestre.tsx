@@ -10,12 +10,14 @@ const Bimestre = () => {
   const [dados, setDados] = useState<IResult>({});
   const [isFalse, setIsFalse] = useState(false);
   const [bimestre, setBimestre] = useState('');
+  const [keys, setKeys] = useState<string[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await getResults();
         setDados(response);
+        setKeys(Object.keys(response))
       } catch (error) {
         console.error('Erro ao buscar dados da API:', error);
       }
@@ -41,7 +43,7 @@ const Bimestre = () => {
 
   return (
     <div className='pai'>
-      {['primeiro', 'segundo', 'terceiro', 'quarto'].map((num) => (
+      {keys.map((num) => (
         <>
           <div className='period'>
             <h1 className='title'>Bimestre {num}</h1>
