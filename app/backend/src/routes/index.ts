@@ -3,6 +3,6 @@ import ResultRouter from './ResultRouter';
 
 const router = Router();
 
-router.use('/funciona', ResultRouter);
+router.use('/', ResultRouter);
 
 export default router;
