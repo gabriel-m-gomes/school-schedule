@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createNote } from '../services/request';
-import '../App.css';
+import '../style/App.css'
 import { IButton } from '../interfaces/button/IButton';
 import cancelSvg from '../assets/cancel.svg'
 

@@ -3,7 +3,7 @@ import { getResults } from '../services/request';
 import { IResult } from '../interfaces/result/IResult';
 import Buttons from './buttons';
 import RenderBim from './RenderBim';
-import '../App.css';
+import '../style/App.css'
 import adicionar from '../assets/adicionar.svg'
 
 const Bimestre = () => {
