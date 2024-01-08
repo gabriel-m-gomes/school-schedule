@@ -1,1 +1,35 @@
-Iniciando o desafio!
+# Boas vindas ao repositório School-schedule!
+
+Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica
+O projeto é composto de 4 entidades importantes para sua estrutura:
+
+1️⃣ **Banco de dados:**
+  - Será um container docker MySQL já configurado no docker-compose através de um serviço definido como `db`.
+  - Tem o papel de fornecer dados para o serviço de _backend_.
+  - Você também pode conectar a um Cliente MySQL (Workbench, Beekeeper, DBeaver e etc), colocando as credenciais configuradas no docker-compose no serviço `db`.
+
+2️⃣ **Back-end:**
+ - Será o ambiente que você realizará a maior parte das implementações exigidas.
+ - Deve rodar na porta `3001`, pois o front-end faz requisições para ele nessa porta por padrão;
+ - Sua aplicação deve ser inicializada a partir do arquivo `app/backend/src/server.ts`;
+
+3️⃣ **Front-end:**
+  - O front já está concluído,
+
+4️⃣ **Docker:**
+  - O `docker-compose` tem a responsabilidade de unir todos os serviços conteinerizados (backend, frontend e db) e subir o projeto completo com o comando `npm run compose:up`;
+  - Você **deve** configurar as `Dockerfiles` corretamente nas raízes do `front-end` e `back-end`, para conseguir inicializar a aplicação;
+
+<details>
+  - No container `db`, representado por um comando `ping` no banco de dados;
+  - No back-end, representado por um comando `lsof`, que vai procurar aplicações ativas na porta definida (por padrão, no caso `3001`);
+  - No front-end, representado por um comando `lsof`, que vai procurar aplicações ativas na porta definida (por padrão, no caso `3000`).
+
+- Caso os containers respeitem as premissas anteriores, os mesmos devem ser criados sem maiores problemas:
+
+ #### ⚠️ **Inicie seu `docker-compose`** ⚠️
+
+  - Tanto do back, quanto do front-end, possuem arquivos `Dockerfile` válidos;
+  - Utilize os scripts de apoio `npm run compose:up` / `npm run compose:down`, para facilitar a execução do seu *compose*.
+
+</details>
