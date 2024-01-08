@@ -20,7 +20,6 @@ O projeto é composto de 4 entidades importantes para sua estrutura:
   - O `docker-compose` tem a responsabilidade de unir todos os serviços conteinerizados (backend, frontend e db) e subir o projeto completo com o comando `npm run compose:up`;
   - Você **deve** configurar as `Dockerfiles` corretamente nas raízes do `front-end` e `back-end`, para conseguir inicializar a aplicação;
 
-<details>
   - No container `db`, representado por um comando `ping` no banco de dados;
   - No back-end, representado por um comando `lsof`, que vai procurar aplicações ativas na porta definida (por padrão, no caso `3001`);
   - No front-end, representado por um comando `lsof`, que vai procurar aplicações ativas na porta definida (por padrão, no caso `3000`).
@@ -32,4 +31,3 @@ O projeto é composto de 4 entidades importantes para sua estrutura:
   - Tanto do back, quanto do front-end, possuem arquivos `Dockerfile` válidos;
   - Utilize os scripts de apoio `npm run compose:up` / `npm run compose:down`, para facilitar a execução do seu *compose*.
 
-</details>
